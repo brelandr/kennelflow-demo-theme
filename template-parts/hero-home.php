@@ -33,7 +33,7 @@ if ( $hero_image_id ) {
 			<?php if ( kennelflow_demo_has_vet_booking_shortcode() || kennelflow_demo_has_boarding_booking_shortcode() ) : ?>
 				<a class="kf-btn kf-btn--primary" href="<?php echo esc_url( $book_url ); ?>"><?php esc_html_e( 'Book Online', 'kennelflow-demo-theme' ); ?></a>
 			<?php endif; ?>
-			<a class="kf-btn kf-btn--outline kf-btn--on-dark" href="<?php echo esc_url( $portal ); ?>"><?php esc_html_e( 'Owner Portal', 'kennelflow-demo-theme' ); ?></a>
+			<a class="kf-btn kf-btn--inverse" href="<?php echo esc_url( $portal ); ?>"><?php esc_html_e( 'Owner Portal', 'kennelflow-demo-theme' ); ?></a>
 		</div>
 		<div class="kf-hero__stats">
 			<div class="kf-hero__stat">

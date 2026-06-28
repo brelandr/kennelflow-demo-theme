@@ -22,7 +22,7 @@ $book   = kennelflow_demo_has_vet_booking_shortcode()
 			<?php if ( kennelflow_demo_has_vet_booking_shortcode() || kennelflow_demo_has_boarding_booking_shortcode() ) : ?>
 				<a class="kf-btn kf-btn--primary" href="<?php echo esc_url( $book ); ?>"><?php esc_html_e( 'Book now', 'kennelflow-demo-theme' ); ?></a>
 			<?php endif; ?>
-			<a class="kf-btn kf-btn--outline kf-btn--on-dark" href="<?php echo esc_url( $portal ); ?>"><?php esc_html_e( 'My Pets portal', 'kennelflow-demo-theme' ); ?></a>
+			<a class="kf-btn kf-btn--inverse" href="<?php echo esc_url( $portal ); ?>"><?php esc_html_e( 'My Pets portal', 'kennelflow-demo-theme' ); ?></a>
 		</div>
 	</div>
 </section>

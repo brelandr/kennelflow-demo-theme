@@ -85,7 +85,7 @@ echo "  2. Appearance → Demo Setup → Run Demo Setup (optional)"
 echo "  3. Settings → Permalinks → Save"
 echo "  4. KennelFlow → Sample Data → Generate (if you updated kennelflow-data)"
 echo ""
-echo "Verify in page source: theme.css?ver=1.0.2 and white Owner Portal button."
+echo "Verify in page source: kf-btn--inverse on Owner Portal / My Pets portal (solid white buttons)."
 
 if command -v wp >/dev/null 2>&1; then
 	echo ""

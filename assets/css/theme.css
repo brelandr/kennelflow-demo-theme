@@ -238,16 +238,37 @@ a:not(.kf-btn):hover {
 	font-size: 0.9rem;
 }
 
-/* Solid secondary button for dark backgrounds (hero, CTA band) */
+/* Solid light button for dark sections (hero, CTA band) — not transparent outline */
+.kf-btn--inverse,
+a.kf-btn.kf-btn--inverse {
+	background-color: #ffffff;
+	background-image: none;
+	color: #1e3a5f;
+	border: 2px solid #ffffff;
+	box-shadow: 0 4px 18px rgba(15, 23, 42, 0.28);
+}
+
+.kf-btn--inverse:hover,
+.kf-btn--inverse:focus,
+a.kf-btn.kf-btn--inverse:hover,
+a.kf-btn.kf-btn--inverse:focus {
+	background-color: #f1f5f9;
+	color: #1e3a5f;
+	border-color: #f1f5f9;
+	box-shadow: 0 6px 22px rgba(15, 23, 42, 0.32);
+}
+
+/* Legacy: outline + on-dark still supported if old templates are cached */
 .kf-btn--on-dark,
 .kf-hero .kf-btn--outline,
 .kf-hero__actions .kf-btn--outline,
 .kf-cta-band .kf-btn--outline,
 .kf-cta-band .kf-hero__actions .kf-btn--outline {
-	background: #fff !important;
+	background-color: #ffffff !important;
+	background-image: none !important;
 	color: #1e3a5f !important;
-	border-color: #fff !important;
-	box-shadow: 0 4px 18px rgba(15, 23, 42, 0.22);
+	border-color: #ffffff !important;
+	box-shadow: 0 4px 18px rgba(15, 23, 42, 0.28);
 }
 
 .kf-btn--on-dark:hover,
@@ -260,15 +281,15 @@ a:not(.kf-btn):hover {
 .kf-cta-band .kf-btn--outline:focus,
 .kf-cta-band .kf-hero__actions .kf-btn--outline:hover,
 .kf-cta-band .kf-hero__actions .kf-btn--outline:focus {
-	background: #f1f5f9 !important;
+	background-color: #f1f5f9 !important;
 	color: #1e3a5f !important;
 	border-color: #f1f5f9 !important;
-	box-shadow: 0 6px 22px rgba(15, 23, 42, 0.28);
 }
 
 .kf-hero__actions .kf-btn--primary,
 .kf-cta-band .kf-btn--primary {
-	box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+	box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
+	border: 2px solid rgba(255, 255, 255, 0.35);
 }
 
 /* Hero */

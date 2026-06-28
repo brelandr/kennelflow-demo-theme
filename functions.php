@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'KENNELFLOW_DEMO_THEME_VERSION', '1.0.2' );
+define( 'KENNELFLOW_DEMO_THEME_VERSION', '1.0.3' );
 define( 'KENNELFLOW_DEMO_THEME_DIR', get_template_directory() );
 define( 'KENNELFLOW_DEMO_THEME_URI', get_template_directory_uri() );
 
@@ -62,19 +62,34 @@ add_action( 'after_setup_theme', 'kennelflow_demo_theme_setup' );
  *
  * @return void
  */
+function kennelflow_demo_theme_asset_version( $relative_path ) {
+	$path = KENNELFLOW_DEMO_THEME_DIR . '/' . ltrim( $relative_path, '/' );
+	if ( is_readable( $path ) ) {
+		return (string) filemtime( $path );
+	}
+	return KENNELFLOW_DEMO_THEME_VERSION;
+}
+
+/**
+ * Enqueue front-end assets.
+ *
+ * @return void
+ */
 function kennelflow_demo_theme_enqueue_assets() {
+	$theme_css_ver = kennelflow_demo_theme_asset_version( 'assets/css/theme.css' );
+
 	wp_enqueue_style(
 		'kennelflow-demo-fonts',
 		KENNELFLOW_DEMO_THEME_URI . '/assets/css/fonts.css',
 		array(),
-		KENNELFLOW_DEMO_THEME_VERSION
+		kennelflow_demo_theme_asset_version( 'assets/css/fonts.css' )
 	);
 
 	wp_enqueue_style(
 		'kennelflow-demo-theme',
 		KENNELFLOW_DEMO_THEME_URI . '/assets/css/theme.css',
 		array( 'kennelflow-demo-fonts' ),
-		KENNELFLOW_DEMO_THEME_VERSION
+		$theme_css_ver
 	);
 
 	if ( class_exists( 'WooCommerce' ) ) {
@@ -140,9 +155,20 @@ function kennelflow_demo_theme_customizer_css() {
 	);
 
 	wp_add_inline_style( 'kennelflow-demo-theme', $css );
-	wp_add_inline_style( 'kennelflow-demo-theme', kennelflow_demo_theme_dark_button_css() );
 }
 add_action( 'wp_enqueue_scripts', 'kennelflow_demo_theme_customizer_css', 20 );
+
+/**
+ * Enqueue high-contrast hero/CTA button overrides last (after WooCommerce/block CSS).
+ *
+ * @return void
+ */
+function kennelflow_demo_theme_enqueue_button_overrides() {
+	wp_register_style( 'kennelflow-demo-buttons', false, array(), KENNELFLOW_DEMO_THEME_VERSION );
+	wp_enqueue_style( 'kennelflow-demo-buttons' );
+	wp_add_inline_style( 'kennelflow-demo-buttons', kennelflow_demo_theme_dark_button_css() );
+}
+add_action( 'wp_enqueue_scripts', 'kennelflow_demo_theme_enqueue_button_overrides', 999 );
 
 /**
  * High-contrast button styles for dark sections (hero, CTA band).
@@ -153,34 +179,32 @@ add_action( 'wp_enqueue_scripts', 'kennelflow_demo_theme_customizer_css', 20 );
  */
 function kennelflow_demo_theme_dark_button_css() {
 	return '
-		.kf-btn--on-dark,
-		.kf-hero .kf-btn--outline,
-		.kf-hero__actions .kf-btn--outline,
-		.kf-cta-band .kf-btn--outline,
-		.kf-cta-band .kf-hero__actions .kf-btn--outline {
-			background: #fff !important;
+		body.kf-campus .kf-hero a.kf-btn.kf-btn--inverse,
+		body.kf-campus .kf-cta-band a.kf-btn.kf-btn--inverse,
+		body.kf-campus .kf-hero a.kf-btn.kf-btn--on-dark,
+		body.kf-campus .kf-hero .kf-btn--outline,
+		body.kf-campus .kf-cta-band .kf-btn--outline {
+			background-color: #ffffff !important;
+			background-image: none !important;
 			color: #1e3a5f !important;
-			border-color: #fff !important;
-			box-shadow: 0 4px 18px rgba(15, 23, 42, 0.22);
+			border: 2px solid #ffffff !important;
+			box-shadow: 0 4px 18px rgba(15, 23, 42, 0.28) !important;
 		}
-		.kf-btn--on-dark:hover,
-		.kf-btn--on-dark:focus,
-		.kf-hero .kf-btn--outline:hover,
-		.kf-hero .kf-btn--outline:focus,
-		.kf-hero__actions .kf-btn--outline:hover,
-		.kf-hero__actions .kf-btn--outline:focus,
-		.kf-cta-band .kf-btn--outline:hover,
-		.kf-cta-band .kf-btn--outline:focus,
-		.kf-cta-band .kf-hero__actions .kf-btn--outline:hover,
-		.kf-cta-band .kf-hero__actions .kf-btn--outline:focus {
-			background: #f1f5f9 !important;
+		body.kf-campus .kf-hero a.kf-btn.kf-btn--inverse:hover,
+		body.kf-campus .kf-hero a.kf-btn.kf-btn--inverse:focus,
+		body.kf-campus .kf-cta-band a.kf-btn.kf-btn--inverse:hover,
+		body.kf-campus .kf-cta-band a.kf-btn.kf-btn--inverse:focus,
+		body.kf-campus .kf-hero a.kf-btn.kf-btn--on-dark:hover,
+		body.kf-campus .kf-hero .kf-btn--outline:hover,
+		body.kf-campus .kf-cta-band .kf-btn--outline:hover {
+			background-color: #f1f5f9 !important;
 			color: #1e3a5f !important;
 			border-color: #f1f5f9 !important;
-			box-shadow: 0 6px 22px rgba(15, 23, 42, 0.28);
 		}
-		.kf-hero__actions .kf-btn--primary,
-		.kf-cta-band .kf-btn--primary {
-			box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+		body.kf-campus .kf-hero .kf-btn--primary,
+		body.kf-campus .kf-cta-band .kf-btn--primary {
+			box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28) !important;
+			border: 2px solid rgba(255, 255, 255, 0.35) !important;
 		}
 	';
 }
