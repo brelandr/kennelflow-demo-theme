@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'KENNELFLOW_DEMO_THEME_VERSION', '1.0.4' );
+define( 'KENNELFLOW_DEMO_THEME_VERSION', '1.0.5' );
 define( 'KENNELFLOW_DEMO_THEME_DIR', get_template_directory() );
 define( 'KENNELFLOW_DEMO_THEME_URI', get_template_directory_uri() );
 

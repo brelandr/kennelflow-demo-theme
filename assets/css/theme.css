@@ -49,13 +49,13 @@ img {
 	display: block;
 }
 
-a:not(.kf-btn) {
+a:not(.kf-btn):not(.kfdata-demo-switcher__role) {
 	color: var(--kf-primary);
 	text-decoration-thickness: 1px;
 	text-underline-offset: 3px;
 }
 
-a:not(.kf-btn):hover {
+a:not(.kf-btn):not(.kfdata-demo-switcher__role):hover {
 	color: var(--kf-primary-dark);
 }
 

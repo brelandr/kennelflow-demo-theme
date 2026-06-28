@@ -3,7 +3,7 @@ Contributors: brelandr
 Requires at least: 6.4
 Tested up to: 6.8
 Requires PHP: 8.0
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,6 +56,9 @@ See `instawp-setup.md` for the full InstaWP checklist.
 Uses the system font stack by default (no external CDN). Optional: bundle DM Sans woff2 in `assets/fonts/` for custom typography.
 
 == Changelog ==
+
+= 1.0.5 =
+* Exclude sandbox switcher links from global theme anchor colors (fixes teal-on-teal role buttons)
 
 = 1.0.4 =
 * Solid white inverse buttons on hero and CTA band (Owner Portal, My Pets portal)
