@@ -1,0 +1,9 @@
+/**
+ * Typography — system font stack (no external CDN).
+ * Optional: add dm-sans-400.woff2 to ../fonts/ and uncomment @font-face in readme.
+ */
+
+:root {
+	--kf-font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	--kf-font-serif: Georgia, "Times New Roman", serif;
+}

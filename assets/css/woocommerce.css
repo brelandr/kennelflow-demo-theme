@@ -1,0 +1,104 @@
+/**
+ * WooCommerce styles for KennelFlow Campus Demo
+ */
+
+.kf-wc-wrap .woocommerce-breadcrumb {
+	margin-bottom: 1.5rem;
+	font-size: 0.9rem;
+	color: var(--kf-text-muted);
+}
+
+.kf-wc-wrap .woocommerce-breadcrumb a {
+	color: var(--kf-primary);
+}
+
+.kf-wc-wrap ul.products {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+	gap: 1.5rem;
+}
+
+.kf-wc-wrap ul.products li.product {
+	background: var(--kf-surface);
+	border: 1px solid var(--kf-border);
+	border-radius: var(--kf-radius);
+	padding: 1rem;
+	box-shadow: var(--kf-shadow);
+	margin: 0 !important;
+	width: 100% !important;
+}
+
+.kf-wc-wrap ul.products li.product .woocommerce-loop-product__title {
+	font-family: var(--kf-font-serif);
+	color: var(--kf-accent);
+	font-size: 1.1rem;
+}
+
+.kf-wc-wrap ul.products li.product .price {
+	color: var(--kf-primary);
+	font-weight: 700;
+}
+
+.kf-wc-wrap .button,
+.kf-wc-wrap button.button,
+.kf-wc-wrap a.button,
+.kf-wc-wrap input.button {
+	background: var(--kf-primary) !important;
+	color: #fff !important;
+	border-radius: 999px !important;
+	font-weight: 600;
+	padding: 0.65rem 1.25rem !important;
+	border: none !important;
+}
+
+.kf-wc-wrap .button:hover,
+.kf-wc-wrap button.button:hover,
+.kf-wc-wrap a.button:hover {
+	background: var(--kf-primary-dark) !important;
+}
+
+.kf-wc-wrap .woocommerce-message,
+.kf-wc-wrap .woocommerce-info,
+.kf-wc-wrap .woocommerce-error {
+	border-radius: var(--kf-radius);
+	border-top: none;
+	border-left: 4px solid var(--kf-primary);
+}
+
+.kf-wc-wrap table.shop_table {
+	border-radius: var(--kf-radius);
+	overflow: hidden;
+	border: 1px solid var(--kf-border);
+}
+
+.kf-wc-wrap .woocommerce-checkout #customer_details,
+.kf-wc-wrap .woocommerce-checkout #order_review {
+	background: var(--kf-surface);
+	border: 1px solid var(--kf-border);
+	border-radius: var(--kf-radius);
+	padding: 1.5rem;
+}
+
+.kf-wc-wrap .woocommerce-MyAccount-navigation ul {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 2rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.kf-wc-wrap .woocommerce-MyAccount-navigation a {
+	display: block;
+	padding: 0.5rem 1rem;
+	border-radius: 999px;
+	background: var(--kf-bg-alt);
+	text-decoration: none;
+	color: var(--kf-accent);
+	font-weight: 500;
+}
+
+.kf-wc-wrap .woocommerce-MyAccount-navigation .is-active a {
+	background: var(--kf-primary);
+	color: #fff;
+}
